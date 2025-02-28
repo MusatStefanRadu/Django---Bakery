@@ -1,0 +1,64 @@
+{% load static %}
+<div>{% include 'menu.html' %}</div>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Form</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/product_form.css' %}">
+    <link rel="stylesheet" href="{% static 'css/menu.css' %}">
+</head>
+
+<body class="product-form">
+
+    <form method="POST" action="">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="hidden" name="page" value="{{ page_obj.number }}">
+        <button type="submit">Filter</button>
+    </form>
+
+    {% if page_obj %}
+        <h2>Available products:</h2>
+        <ul class="product-list">
+            {% for product in page_obj %}
+                <li class="product-item">
+                    <strong>{{ product.name }}</strong><br>
+                    Category: {{ product.category }}<br>
+                    Price: {{ product.price }} RON<br>
+                    Stock: {{ product.stock }}<br>
+                    Description: {{ product.description|truncatewords:20 }}<br>
+                    {% if product.calories %}
+                        Calories: {{ product.calories }} kcal<br>
+                    {% endif %}
+                    {% if product.allergens %}
+                        Allergens: {{ product.allergens }}<br>
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+
+        <div>
+            <span class="step-links">
+                {% if page_obj.has_previous %}
+                    <a href="?page={{ page_obj.previous_page_number }}">Previous page</a>
+                {% endif %}
+
+                <span class="current">
+                    Pagina {{ page_obj.number }} din {{ page_obj.paginator.num_pages }}.
+                </span>
+
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}">Next page</a>
+                {% endif %}
+            </span>
+        </div>
+    {% else %}
+        <p>There are no products that match the filter criteria.</p>
+    {% endif %}
+</body>
+
+</html>

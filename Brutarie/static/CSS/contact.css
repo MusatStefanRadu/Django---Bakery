@@ -1,0 +1,121 @@
+/* Stilizare generală a paginii */
+body.contact-page {
+    display: flex;
+    flex-direction: column; /* Conținutul va fi aranjat vertical */
+    align-items: center; /* Centrează orizontal */
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+
+.container {
+    margin: 80px auto 0; /* Spațiu de 80px sub meniu */
+    max-width: 600px;
+    width: 100%;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    box-sizing: border-box;
+}
+
+h1 {
+    color: #333;
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Formulare */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin: 8px 0 4px;
+    font-weight: bold;
+    color: #555;
+    font-size: 14px;
+}
+
+/* Câmpuri de input */
+input, textarea, select {
+    padding: 8px;
+    font-size: 14px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Textarea */
+textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* Mesaje de eroare */
+.error {
+    color: red;
+    font-size: 12px;
+    margin-top: -8px;
+}
+
+.error p {
+    margin: 5px 0;
+}
+
+/* Mesaj de succes */
+.success {
+    color: green;
+    font-size: 14px;
+    text-align: center;
+    margin-top: 15px;
+}
+
+/* Butonul de submit */
+button {
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Responsivitate pentru ecrane mici */
+@media screen and (max-width: 768px) {
+    .container {
+        padding: 15px;
+        width: 90%;
+    }
+
+    h1 {
+        font-size: 1.8em;
+    }
+
+    label {
+        font-size: 13px;
+    }
+
+    input, textarea, select {
+        font-size: 13px;
+    }
+
+    button {
+        font-size: 13px;
+    }
+}
+

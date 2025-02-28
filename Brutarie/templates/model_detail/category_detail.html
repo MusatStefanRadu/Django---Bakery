@@ -1,0 +1,20 @@
+<!-- category_detail.html -->
+    
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/category_detail.css' %}">
+
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Category Details: {{ category.name }}</title>
+</head>
+<body>
+    <h1>Category Details: {{ category.name }}</h1>
+    <p><strong>Description:</strong> {{ category.description }}</p>
+
+    <p><a href="{% url 'category_list' %}">Back to category list</a></p>
+
+</body>
+</html>

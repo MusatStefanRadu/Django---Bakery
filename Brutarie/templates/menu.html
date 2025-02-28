@@ -1,0 +1,47 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My Website{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/menu.css' %}">
+</head>
+
+<body class="menu-page">
+
+    <!-- Navbar -->
+    <div class="navbar-container">
+        <nav class="navbar">
+            <ul class="navbar-list">
+                <li class="navbar-item"><a href="{% url 'home' %}" class="navbar-link">Home</a></li>
+                <li class="navbar-item"><a href="{% url 'contact' %}" class="navbar-link">Contact</a></li>
+                <li class="navbar-item"><a href="{% url 'product_list' %}" class="navbar-link">Products</a></li>
+                <li class="navbar-item"><a href="{% url 'promotion_list' %}" class="navbar-link">Promotions</a></li>
+                <li class="navbar-item"><a href="{% url 'bakery_list' %}" class="navbar-link">Bakeries</a></li>
+                <li class="navbar-item"><a href="{% url 'category_list' %}" class="navbar-link">Categories</a></li>
+                {% if user.is_authenticated %}
+                    {% if perms.Brutarie.view_offer %}
+                        <li class="navbar-item"><a href="{% url 'offer_page' %}" class="navbar-link">Offer_Page</a></li>
+                    {% endif %}
+                    <li class="navbar-item"><a href="{% url 'banner' %}" class="navbar-link">Banner</a></li>
+                    <li class="navbar-item"><a href="{% url 'profile' %}" class="navbar-link">Profile</a></li>
+                    <li class="navbar-item"><a href="{% url 'logout' %}" class="navbar-link">Logout</a></li>
+                {% else %}
+                    <li class="navbar-item"><a href="{% url 'login' %}" class="navbar-link">Login</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Content of the page -->
+    <div class="content-container">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+</body>
+
+</html>

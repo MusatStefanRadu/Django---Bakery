@@ -1,0 +1,20 @@
+<!-- bakery_detail.html -->
+ 
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/bakery_detail.css' %}">
+
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brutărie: {{ bakery.name }}</title>
+</head>
+<body>
+    <h1>Bakery details: {{ bakery.name }}</h1>
+    <p><strong>Location:</strong> {{ bakery.location }}</p>
+    <p><strong>Open at:</strong> {{ bakery.opened_at }}</p>
+
+    <p><a href="{% url 'bakery_list' %}">Back to the list of bakeries</a></p>
+</body>
+</html>

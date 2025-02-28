@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+    {% load static %}  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome!</title>
+    <link rel="stylesheet" href="{% static 'home.css' %}">
+    <link rel="stylesheet" href="{% static 'menu.css' %}">
+</head>
+
+<body>
+
+    {% include 'menu.html' %}
+
+    <header>
+        <h1>{{ message }}</h1>
+    </header>
+
+    {% if active_promotion %}
+    <div class="promotion-banner">
+        <h2>Special offer!</h2>
+        <p>Take advantage of our special discount!</p>
+    </div>
+    {% endif %}
+
+    <div class="products">
+        {% for product in products %}
+        <div class="product">
+            <h3>{{ product.name }}</h3>
+            <p>Price: {{ product.price }} RON</p>
+            <p>Stock: {{ product.stock }} pieces</p>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="auth-links">
+        {% if user.is_authenticated %}
+        <p><a href="{% url 'logout' %}">Logout</a></p>
+        <div class="offer-button">
+            <a href="{% url 'banner' %}"><button>See special offer</button></a>
+        </div>
+        {% else %}
+        <p><a href="{% url 'login' %}">Login</a></p>
+        {% endif %}
+    </div>
+
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li class="{{ message.tags }}">{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+</body>
+
+</html>

@@ -1,0 +1,127 @@
+{% load static %}
+{% include 'menu.html' %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/contact.css' %}">
+<link rel="stylesheet" href="{% static 'menu.css' %}">
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+</head>
+
+
+<body class="contact-page">
+
+    <div class="container">
+
+        <h1>Contact Form</h1>
+
+        {% if form.errors %}
+        <div class="error">
+            <p>There was a problem with the form submission. Please correct the errors.</p>
+        </div>
+        {% for error in form.non_field_errors %}
+        <p class="error">{{ error }}</p>
+        {% endfor %}
+        {% endif %}
+
+        <form method="post">
+            {% csrf_token %}
+
+            <label for="first_name">First Name:</label>
+            {{ form.first_name }}
+            {% if form.first_name.errors %}
+            <div class="error">
+                {% for error in form.first_name.errors %}
+                <p>{{ error }}</p>
+                {% endfor %}
+            </div>
+            {% endif %}
+
+            <label for="last_name">Last Name:</label>
+            {{ form.last_name }}
+            {% if form.last_name.errors %}
+            <div class="error">
+                {% for error in form.last_name.errors %}
+                <p>{{ error }}</p>
+                {% endfor %}
+            </div>
+            {% endif %}
+
+            <label for="birth_date">Birth Date:</label>
+            {{ form.birth_date }}
+            {% if form.birth_date.errors %}
+            <div class="error">
+                {% for error in form.birth_date.errors %}
+                <p>{{ error }}</p>
+                {% endfor %}
+            </div>
+            {% endif %}
+
+            <label for="email">Email:</label>
+            {{ form.email }}
+            {% if form.email.errors %}
+            <div class="error">
+                {% for error in form.email.errors %}
+                <p>{{ error }}</p>
+                {% endfor %}
+            </div>
+            {% endif %}
+
+            <label for="confirm_email">Confirm Email:</label>
+            {{ form.confirm_email }}
+            {% if form.confirm_email.errors %}
+            <div class="error">
+                {% for error in form.confirm_email.errors %}
+                <p>{{ error }}</p>
+                {% endfor %}
+            </div>
+            {% endif %}
+
+            <label for="message_type">Message Type:</label>
+            {{ form.message_type }}
+            {% if form.message_type.errors %}
+            <div class="error">
+                {% for error in form.message_type.errors %}
+                <p>{{ error }}</p>
+                {% endfor %}
+            </div>
+            {% endif %}
+
+            <label for="subject">Subject:</label>
+            {{ form.subject }}
+            {% if form.subject.errors %}
+            <div class="error">
+                {% for error in form.subject.errors %}
+                <p>{{ error }}</p>
+                {% endfor %}
+            </div>
+            {% endif %}
+
+            <label for="message">Message:</label>
+            {{ form.message }}
+            {% if form.message.errors %}
+            <div class="error">
+                {% for error in form.message.errors %}
+                <p>{{ error }}</p>
+                {% endfor %}
+            </div>
+            {% endif %}
+
+            <button type="submit">Submit Message</button>
+        </form>
+
+        {% if form.is_valid %}
+        <div class="success">
+            <p>Thank you for your message!</p>
+        </div>
+        {% endif %}
+    </div>
+
+</body>
+
+</html>

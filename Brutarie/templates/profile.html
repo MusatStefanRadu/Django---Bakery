@@ -1,0 +1,23 @@
+{% load static %}
+<div>{% include 'menu.html' %}</div>
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/profile.css' %}">
+<link rel="stylesheet" href="{% static 'menu.css' %}">
+
+
+{% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+            <li class="{{ message.tags }}">{{ message }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+
+<h2>Profile</h2>
+<p><strong>Username:</strong> {{ user_data.username }}</p>
+<p><strong>Email:</strong> {{ user_data.email }}</p>
+<p><strong>First Name:</strong> {{ user_data.first_name }}</p>
+<p><strong>Last Name:</strong> {{ user_data.last_name }}</p>
+
+<a href="{% url 'change_password' %}">Change Password</a>
+<a href="{% url 'logout' %}">Logout</a>

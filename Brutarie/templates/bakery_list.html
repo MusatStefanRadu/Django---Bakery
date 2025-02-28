@@ -1,0 +1,25 @@
+<!-- bakery_list.html -->
+
+{% load static %}
+<div>{% include 'menu.html' %}</div>
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/list.css' %}">
+<link rel="stylesheet" href="{% static 'css/menu.css' %}">
+
+
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List of Bakeries</title>
+</head>
+<body class="lista">
+    <h1>List of Bakeries</h1>
+    <ul>
+        {% for bakery in bakeries %}
+            <li><a href="{% url 'bakery_detail' bakery.bakery_id %}">{{ bakery.name }} - {{ bakery.location }}</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

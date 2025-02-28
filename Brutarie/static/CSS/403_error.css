@@ -1,0 +1,92 @@
+/* Stilizare generală pentru pagina de eroare */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f2f2f2; /* Fundal deschis */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #333;
+}
+
+.container {
+    background-color: #ffffff; /* Fundal alb pentru container */
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Umbra pentru a crea adâncime */
+    text-align: center;
+    width: 90%;
+    max-width: 600px;
+    box-sizing: border-box;
+}
+
+h1 {
+    font-size: 48px;
+    font-weight: bold;
+    color: #e74c3c; /* Culoare roșie pentru titlu */
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.message {
+    font-size: 16px;
+    color: #888;
+    line-height: 1.5;
+    margin-top: 20px;
+}
+
+/* Butonul de întoarcere acasă */
+button {
+    padding: 12px 20px;
+    background-color: #3498db; /* Albastru vibrant */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+    margin-top: 30px;
+}
+
+button:hover {
+    background-color: #2980b9; /* Culoare albastră mai închisă la hover */
+}
+
+/* Animare pentru titlul principal */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+h1 {
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Responsivitate pentru ecrane mici */
+@media screen and (max-width: 600px) {
+    h1 {
+        font-size: 36px; /* Ajustăm dimensiunea titlului pe mobil */
+    }
+
+    p, .message {
+        font-size: 14px;
+    }
+
+    button {
+        font-size: 14px;
+        padding: 10px 15px;
+    }
+}

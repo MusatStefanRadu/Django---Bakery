@@ -1,0 +1,27 @@
+<!-- promotion_detail.html -->
+
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/promotion_detail.css' %}">
+
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promotion {{ promotion.promotion_id }}</title>
+</head>
+<body>
+    <h1>Promotion details {{ promotion.promotion_id }}</h1>
+    <p><strong>Promotion period:</strong> {{ promotion.start_date }} up to {{ promotion.end_date }}</p>
+    <p><strong>Reduction:</strong> {{ promotion.discount }}%</p>
+
+    <h2>Products included</h2>
+    <ul>
+        {% for product in promotion.products.all %}
+            <li>{{ product.name }} - {{ product.price }} Lei</li>
+        {% endfor %}
+    </ul>
+
+    <p><a href="{% url 'promotion_list' %}">Back to the promotions list</a></p>
+</body>
+</html>

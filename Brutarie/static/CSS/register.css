@@ -1,0 +1,94 @@
+/* Stilizare generală a paginii */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+/* Formularul de înregistrare */
+form {
+    background-color: #ffffff;
+    padding: 20px;
+    margin: 50px auto;
+    max-width: 600px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Titlu formular */
+h1 {
+    text-align: center;
+    color: #333;
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+/* Stilizare etichete de câmp */
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 8px;
+}
+
+/* Stilizare câmpuri de input */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Butonul de submit */
+button {
+    width: 100%;
+    padding: 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    font-size: 1.2em;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Stilizare pentru mesajele de eroare */
+div {
+    margin-bottom: 20px;
+}
+
+div p {
+    margin: 5px 0;
+}
+
+div div {
+    font-size: 14px;
+    color: red;
+}
+
+/* Stilizare pentru câmpuri cu erori */
+input:invalid,
+textarea:invalid {
+    border-color: #ff0000;
+}
+
+/* Responsivitate pentru ecrane mici */
+@media screen and (max-width: 600px) {
+    form {
+        width: 90%;
+        padding: 15px;
+    }
+
+    button {
+        padding: 12px;
+        font-size: 1em;
+    }
+}
